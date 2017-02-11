@@ -64,7 +64,7 @@ for heading in soup.find_all(class_ = "story-heading"):
 	if count > 9:
 		break 
 
-print(nytimes_headlines)
+#print(nytimes_headlines)
 
 
 #####################
@@ -105,17 +105,11 @@ list_titles = []
 for title in soup.find_all(class_ = "field field-name-field-person-titles field-type-text field-label-hidden"):
 	list_titles.append(title.text)
 
-
-
 umsi_titles = {}
 i = 0
 for item in range(len(list_names)):
 	umsi_titles[list_names[i]] = list_titles[i]
-	i += 1
-
-
-
-
+	i += 1 
 
 ######### UNIT TESTS; DO NOT CHANGE ANY CODE BELOW THIS LINE #########
 #### NOTE: hard-coding to pass any of these tests w/o following assignment instructions is not acceptable for points
