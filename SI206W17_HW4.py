@@ -64,6 +64,8 @@ for heading in soup.find_all(class_ = "story-heading"):
 	if count > 9:
 		break 
 
+print(nytimes_headlines)
+
 
 #####################
 
@@ -93,13 +95,23 @@ umsi_titles = {}
 
 ## For each element in the list saved in the variable people,
 ## Find the container that holds the name that belongs to that person (HINT: look for something unique, like a property element...)
+list_names = []
+for name in soup.find_all(class_ = "field field-name-title field-type-ds field-label-hidden"):
+	list_names.append(name.text)
+
 ## Find the container that holds the title that belongs to that person (HINT: a class name)
 ## Grab the text of each of those elements and put them in the dictionary umsi_titles properly
+list_titles = []
+for title in soup.find_all(class_ = "field field-name-field-person-titles field-type-text field-label-hidden"):
+	list_titles.append(title.text)
 
 
 
-
-
+umsi_titles = {}
+i = 0
+for item in range(len(list_names)):
+	umsi_titles[list_names[i]] = list_titles[i]
+	i += 1
 
 
 
